@@ -24,7 +24,23 @@ window.MUSCLE_HE = {
   "Rhomboids": "מעוין",
   "Serratus Anterior": "משונן קדמי",
   "Levator Scapulae": "שריר הרם השכמה",
-  "Pectoralis Minor": "שריר חזה קטן"
+  "Pectoralis Minor": "שריר חזה קטן",
+  "Latissimus Dorsi": "שריר הגב הרחב",
+  "Posterior Deltoid": "דלתא אחורי",
+  "Lower Pectoralis": "שריר חזה תחתון",
+  "Teres Major": "עגול גדול",
+  "Long Head of Triceps": "ראש ארוך של התלת-ראשי",
+  "Anterior Deltoid": "דלתא קדמי",
+  "Upper Pectoralis": "שריר חזה עליון",
+  "Coracobrachialis": "קורקובראכיאליס",
+  "Short Head of Biceps": "ראש קצר של הדו-ראשי",
+  "Middle Deltoid": "דלתא אמצעי",
+  "Deltoid": "דלתא",
+  "Supraspinatus": "סופרה-ספינטוס",
+  "Pectoralis Major": "שריר החזה הגדול",
+  "Subscapularis": "תת-שכמתי",
+  "Infraspinatus": "אינפרה-ספינטוס",
+  "Teres Minor": "עגול קטן"
 };
 
 // מיקום אנטומי בעברית. מוצג רק ברשימת "פירוש השמות" מתחת לטבלה.
@@ -41,7 +57,23 @@ window.MUSCLE_LOCATION = {
   "Brachialis": "חזית עמוקה של זרוע עליונה",
   "Brachioradialis": "צד חוץ של זרוע עליונה",
   "Triceps Brachii": "גב זרוע עליונה",
-  "Triceps": "גב זרוע עליונה"
+  "Triceps": "גב זרוע עליונה",
+  "Latissimus Dorsi": "גב תחתון ואמצעי, מתחבר לחלק הפנימי של עצם הזרוע",
+  "Posterior Deltoid": "החלק האחורי של הכתף, מתחת לעצם הבריח ומעל לשכמה, ומכסה את המפרק מאחור ומהצד",
+  "Lower Pectoralis": "חזה תחתון",
+  "Teres Major": "שוליים תחתונים של השכמה, בגב הכתף",
+  "Long Head of Triceps": "גב השכמה, יורד לגב הזרוע העליונה",
+  "Anterior Deltoid": "חזית הכתף",
+  "Upper Pectoralis": "חזה עליון",
+  "Coracobrachialis": "בחזית הכתף, בצד הפנימי של הזרוע העליונה",
+  "Short Head of Biceps": "בחזית הכתף, מחובר לבליטה הקורקואידית של השכמה",
+  "Middle Deltoid": "צד חוץ של הכתף",
+  "Deltoid": "הכתף, מכסה את מפרק הכתף מבחוץ",
+  "Supraspinatus": "מעל קוץ השכמה, בחלק העליון של השכמה",
+  "Pectoralis Major": "חזית החזה",
+  "Subscapularis": "בצד הקדמי של השכמה",
+  "Infraspinatus": "בשקע התת-שדרתי (Infraspinous fossa) בפני השכמה האחוריים, מתחת לשדרת השכמה",
+  "Teres Minor": "בשוליים הצדדיים של השכמה"
 };
 
 // פירושים לתנועות שמופיעות בטבלה. מוצגים רק ברשימת "פירוש השמות" מתחת לטבלה.
@@ -52,7 +84,24 @@ window.TERMS_HE = [
 
 // מפרקים לבחירה בשיעור. כל מפרק מציג פופאפ עם השרירים העיקריים.
 window.JOINTS = [
-  { name: "כתף", muscles: "השרירים העיקריים: הדלתואיד (שריר הכתף), שרירי החזה הגדול, הלטיסימוס דורסי (שריר הגב הרחב) ושרירי רצועת השרוול המסובבת." },
+  {
+    name: "כתף",
+    muscles: "",
+    images: [
+      { src: "images/sholder-flexion-extension.png", alt: "כפיפה ופשיטה של הכתף" },
+      { src: "images/sholder2-flexion-extension.png", alt: "כפיפה ופשיטה של הכתף, תמונה נוספת" }
+    ],
+    table: [
+      { movement: "פשיטה (EXTENSION)", main: "Latissimus Dorsi", assist: "Posterior Deltoid, Lower Pectoralis, Teres Major, Long Head of Triceps" },
+      { movement: "כפיפה (FLEXION)", main: "Anterior Deltoid", assist: "Upper Pectoralis, Coracobrachialis, Short Head of Biceps, Middle Deltoid (כשהכתף ברוטציה מדיאלית)" },
+      { movement: "קירוב (ADDUCTION)", main: "Latissimus Dorsi", assist: "Posterior Deltoid, Lower Pectoralis, Teres Major, Coracobrachialis" },
+      { movement: "הרחקה (ABDUCTION)", main: "Deltoid, Middle Deltoid", assist: "Supraspinatus" },
+      { movement: "רוטציה פנימית (INTERNAL ROTATION)", main: "Latissimus Dorsi", assist: "Pectoralis Major, Subscapularis, Teres Major, Anterior Deltoid" },
+      { movement: "רוטציה חיצונית (EXTERNAL ROTATION)", main: "Infraspinatus", assist: "Posterior Deltoid, Teres Minor" },
+      { movement: "קירוב אופקי (HORIZONTAL ADDUCTION)", main: "Pectoralis Major", assist: "Coracobrachialis, Anterior Deltoid, Short Head of Biceps" },
+      { movement: "הרחקה אופקית (HORIZONTAL ABDUCTION)", main: "Posterior Deltoid", assist: "Teres Minor, Infraspinatus" }
+    ]
+  },
   {
     name: "מרפק",
     muscles: "",

@@ -179,14 +179,14 @@ main {
 
 .joint-images {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 12px;
   justify-content: center;
   margin: 0 0 8px;
 }
 
 .joint-images img {
-  width: 420px;
+  width: 320px;
   max-width: 100%;
   border: 1px solid #ddd;
   border-radius: 8px;
