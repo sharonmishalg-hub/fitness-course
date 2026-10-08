@@ -16,7 +16,27 @@ window.MUSCLE_HE = {
   "Anconeus": "מהמילה היוונית ankon, שפירושה מרפק.",
   "Supinator": "מהמילה הלטינית supinus, שפירושה שכוב על הגב או פונה כלפי מעלה.",
   "Pronator teres": "Pronator: מהמילה הלטינית pronus, שפירושה פונה כלפי מטה. Teres: מעוגל.",
-  "Pronator quadratus": "Quadratus: מרובע."
+  "Pronator quadratus": "Quadratus: מרובע.",
+  "Upper Trapezius": "טרפזיוס עליון",
+  "Middle Trapezius": "טרפזיוס אמצעי",
+  "Lower Trapezius": "טרפזיוס תחתון",
+  "Rhomboid": "מעוין",
+  "Rhomboids": "מעוין",
+  "Serratus Anterior": "משונן קדמי",
+  "Levator Scapulae": "שריר הרם השכמה",
+  "Pectoralis Minor": "שריר חזה קטן"
+};
+
+// מיקום אנטומי בעברית. מוצג רק ברשימת "פירוש השמות" מתחת לטבלה.
+window.MUSCLE_LOCATION = {
+  "Upper Trapezius": "צוואר, עמוד שדרה עליון",
+  "Middle Trapezius": "בגב אמצעי, בין כתפות",
+  "Lower Trapezius": "בגב תחתון, מתחת לכתפות",
+  "Rhomboid": "בין כתף לעמוד שדרה, שכבה עמוקה",
+  "Rhomboids": "בין כתף לעמוד שדרה, שכבה עמוקה",
+  "Serratus Anterior": "צד הגוף בין צלעות לעצם כתף",
+  "Levator Scapulae": "צד צוואר מעמוד שדרה לזוית כתף",
+  "Pectoralis Minor": "חזה, תחת שריר החזה הגדול"
 };
 
 // פירושים לתנועות שמופיעות בטבלה. מוצגים רק ברשימת "פירוש השמות" מתחת לטבלה.
@@ -37,6 +57,21 @@ window.JOINTS = [
     table: [
       { movement: "כפיפה (FLEXION)", main: "Biceps (בסופינציה), Brachialis (בפרונציה)", assist: "Brachioradialis, Biceps, Brachialis" },
       { movement: "פשיטה (EXTENSION)", main: "Triceps Brachii", assist: "אין" }
+    ]
+  },
+  {
+    name: "שכמות",
+    muscles: "",
+    images: [
+      { src: "images/scapular-flextion-extensions.png", alt: "תנועות השכמה" }
+    ],
+    table: [
+      { movement: "קירוב (Retraction)", main: "Middle Trapezius", assist: "Rhomboid, Upper Trapezius, Lower Trapezius" },
+      { movement: "הרחקה (Protraction)", main: "Serratus Anterior", assist: "Pectoralis Minor" },
+      { movement: "הרמה (Elevation)", main: "Upper Trapezius", assist: "Levator Scapulae, Rhomboids" },
+      { movement: "הורדה (Depression)", main: "Lower Trapezius", assist: "Serratus Anterior" },
+      { movement: "רוטציה כלפי מעלה, עם הרחקה (Upward Rotation)", main: "Serratus Anterior", assist: "Upper Trapezius, Lower Trapezius" },
+      { movement: "רוטציה כלפי מטה, עם קירוב (Downward Rotation)", main: "Middle Trapezius", assist: "Rhomboid" }
     ]
   },
   { name: "ירך", muscles: "כיפוף: שריר הכסל (איליופסואס) ושרירי הירך הקדמיים.\nהרחקה והרמה: שרירי העכוז.\nהארכה: שרירי הירך האחוריים ושרירי העכוז." },

@@ -122,11 +122,17 @@
       });
     }));
     if (!names.length) return "";
+    const rows = names
+      .map(n => "<tr><td>" + escapeHtml(n) + "</td><td>" + escapeHtml(window.MUSCLE_HE[n]) + "</td><td>" + escapeHtml((window.MUSCLE_LOCATION || {})[n] || "—") + "</td></tr>")
+      .join("");
+    const txt = JSON.stringify(table);
+    const termRows = (txt.includes("סופינציה") || txt.includes("פרונציה"))
+      ? (window.TERMS_HE || []).map(t => "<tr><td>" + escapeHtml(t.term) + "</td><td>" + escapeHtml(t.he) + "</td><td>—</td></tr>").join("")
+      : "";
     return (
-      '<div class="muscle-legend"><p><strong>פירוש השמות:</strong></p><ul>' +
-      names.map(n => "<li><strong>" + escapeHtml(n) + ":</strong> " + escapeHtml(window.MUSCLE_HE[n]) + "</li>").join("") +
-      (window.TERMS_HE || []).map(t => "<li><strong>" + escapeHtml(t.term) + ":</strong> " + escapeHtml(t.he) + "</li>").join("") +
-      "</ul></div>"
+      '<div class="muscle-legend"><p><strong>פירוש השמות:</strong></p>' +
+      '<table class="joint-table"><thead><tr><th>שם</th><th>פירוש</th><th>מיקום אנטומי</th></tr></thead>' +
+      "<tbody>" + rows + termRows + "</tbody></table></div>"
     );
   }
 
