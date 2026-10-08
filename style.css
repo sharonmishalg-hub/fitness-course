@@ -110,6 +110,11 @@ main {
   width: min(95vw, 900px);
   max-height: 90vh;
   overflow-y: auto;
+  margin: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: none;
   border-radius: 12px;
   padding: 20px;
