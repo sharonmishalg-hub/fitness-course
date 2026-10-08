@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+  color: #222;
+  background: #f7f7f5;
+}
+
+header {
+  background: #1f6f5c;
+  color: #fff;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+}
+
+header .subtitle {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+header p {
+  margin: 0 0 16px;
+  opacity: 0.9;
+}
+
+#search {
+  width: 100%;
+  max-width: 480px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.status {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.lesson {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.lesson h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #1f6f5c;
+}
+
+.lesson img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 8px 0;
+}
+
+.lesson .tag {
+  display: inline-block;
+  background: #e5f1ee;
+  color: #1f6f5c;
+  font-size: 0.85rem;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-left: 4px;
+}
+
+.joint-picker {
+  margin-top: 12px;
+}
+
+.joint-picker p {
+  margin: 0 0 8px;
+  font-weight: bold;
+}
+
+.joint-btn,
+.joint-close {
+  display: inline-block;
+  margin: 4px 4px 4px 0;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #1f6f5c;
+  color: #fff;
+  cursor: pointer;
+}
+
+.joint-dialog {
+  width: min(95vw, 900px);
+  max-height: 90vh;
+  overflow-y: auto;
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.joint-dialog h3 {
+  margin-top: 0;
+  color: #1f6f5c;
+}
+
+.joint-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.joint-table th,
+.joint-table td {
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  text-align: right;
+  vertical-align: top;
+}
+
+.joint-table th {
+  background: #e5f1ee;
+  color: #1f6f5c;
+}
+
+.muscle {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted #1f6f5c;
+  cursor: help;
+  outline: none;
+}
+
+.muscle::after {
+  content: attr(data-he);
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 10;
+  width: min(220px, 70vw);
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: right;
+  white-space: normal;
+}
+
+.muscle:hover::after,
+.muscle:focus::after {
+  display: block;
+}
+
+.joint-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 0 0 8px;
+}
+
+.joint-images img {
+  width: 420px;
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.muscle-legend {
+  font-size: 0.95rem;
+}
+
+.muscle-legend ul {
+  margin: 4px 0 0;
+  padding-right: 20px;
+}
+
+.muscle-legend li {
+  margin-bottom: 4px;
+}
+
+.joint-top {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .joint-table {
+    font-size: 0.8rem;
+  }
+
+  .joint-table th,
+  .joint-table td {
+    padding: 4px;
+  }
+}
+
+mark {
+  background: #ffe58a;
+  padding: 0 2px;
+}
+
+footer {
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+  padding: 24px 16px;
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+}

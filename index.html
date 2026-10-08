@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>קורס מאמני כושר</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>קורס מאמני כושר</h1>
+    <h2 class="subtitle">לאגודלית שלי, באהבה ❤️</h2>
+    <p>חומר לימודי, תמונות ותרגילים. אפשר לחפש בכל הנושאים.</p>
+    <input type="search" id="search" placeholder="חיפוש בחומר הלימודי..." aria-label="חיפוש">
+  </header>
+
+  <main>
+    <p id="status" class="status"></p>
+    <div id="results"></div>
+    <section id="lessons"></section>
+  </main>
+
+  <footer>
+    <p>עודכן לאחרונה: <span id="updated"></span></p>
+  </footer>
+
+  <dialog id="joint-dialog" class="joint-dialog"></dialog>
+
+  <script src="lessons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
