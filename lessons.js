@@ -40,7 +40,15 @@ window.MUSCLE_HE = {
   "Pectoralis Major": "שריר החזה הגדול",
   "Subscapularis": "תת-שכמתי",
   "Infraspinatus": "אינפרה-ספינטוס",
-  "Teres Minor": "עגול קטן"
+  "Teres Minor": "עגול קטן",
+  "Iliopsoas": "איליאופסואס: מהעצם הכסל (Ilium) ומשריר הפסואס (Psoas).",
+  "Rectus Femoris": "ישר הירך. Rectus: ישר. Femoris: של הירך.",
+  "Gluteus Maximus": "העכוז הגדול. Gluteus: עכוז. Maximus: הגדול ביותר.",
+  "Hamstrings": "שרירי הירך האחוריים",
+  "Gluteus Medius": "העכוז האמצעי. Medius: אמצעי.",
+  "Gluteus Minimus": "העכוז הקטן. Minimus: הקטן ביותר.",
+  "Gastrocnemius": "שריר התאומים. Gastro: בטן. Cnemis: שוק.",
+  "Quadriceps Femoris": "ארבע-ראשי הירך. Quadriceps: ארבעה ראשים. Femoris: של הירך."
 };
 
 // מיקום אנטומי בעברית. מוצג רק ברשימת "פירוש השמות" מתחת לטבלה.
@@ -73,7 +81,15 @@ window.MUSCLE_LOCATION = {
   "Pectoralis Major": "חזית החזה",
   "Subscapularis": "בצד הקדמי של השכמה",
   "Infraspinatus": "בשקע התת-שדרתי (Infraspinous fossa) בפני השכמה האחוריים, מתחת לשדרת השכמה",
-  "Teres Minor": "בשוליים הצדדיים של השכמה"
+  "Teres Minor": "בשוליים הצדדיים של השכמה",
+  "Iliopsoas": "בעומק הבטן התחתונה ובחזית האגן, מחובר לחוליות המותן ולחלק הקדמי של עצם הירך",
+  "Rectus Femoris": "חזית הירך, באמצע השריר הקדמי של הירך, מחובר לאגן מעל מפרק הירך ולשוק דרך הפטלה",
+  "Gluteus Maximus": "העכוז, השריר הגדול בגוף. מחובר לחלק האחורי של האגן ולעצם הירך",
+  "Hamstrings": "גב הירך. שלושה שרירים שמתחברים לעצם הישיבה ולשוק, מתחת לברך",
+  "Gluteus Medius": "צד העכוז, החיצוני והעליון, על הכנף של עצם הכסל",
+  "Gluteus Minimus": "עמוק מתחת לעכוז האמצעי, על הכנף של עצם הכסל, מחובר לחלק הצידי של עצם הירך",
+  "Gastrocnemius": "גב השוק, שני ראשים שמתחברים מאחורי עצם הירך, ויורדים לעקב דרך גיד אכילס",
+  "Quadriceps Femoris": "חזית הירך, ארבעה ראשים שמתחברים לאגן ולעצם הירך, מתאחדים בגיד הפטלה מעל הברך ומחוברים לשוק"
 };
 
 // פירושים לתנועות שמופיעות בטבלה. מוצגים רק ברשימת "פירוש השמות" מתחת לטבלה.
@@ -128,8 +144,30 @@ window.JOINTS = [
       { movement: "רוטציה כלפי מטה, עם קירוב (Downward Rotation)", main: "Middle Trapezius", assist: "Rhomboid" }
     ]
   },
-  { name: "ירך", muscles: "כיפוף: שריר הכסל (איליופסואס) ושרירי הירך הקדמיים.\nהרחקה והרמה: שרירי העכוז.\nהארכה: שרירי הירך האחוריים ושרירי העכוז." },
-  { name: "ברך", muscles: "יישור: ארבעת ראשי הירך הקדמיים.\nכיפוף: שרירי הירך האחוריים." },
+  {
+    name: "ירך",
+    muscles: "",
+    images: [
+      { src: "images/hip-flexion-extension.png", alt: "כפיפה ופשיטה של הירך" }
+    ],
+    table: [
+      { movement: "כפיפה (FLEXION)", main: "Iliopsoas", assist: "Rectus Femoris, מקרבי הירך" },
+      { movement: "פשיטה (EXTENSION)", main: "Gluteus Maximus", assist: "Hamstrings, מקרבי הירך" },
+      { movement: "קירוב (ADDUCTION)", main: "מקרבי הירך", assist: "אין" },
+      { movement: "הרחקה (ABDUCTION)", main: "Gluteus Medius", assist: "Gluteus Minimus" }
+    ]
+  },
+  {
+    name: "ברך",
+    muscles: "",
+    images: [
+      { src: "images/Knee-flexion-extension.png", alt: "כפיפה ופשיטה של הברך" }
+    ],
+    table: [
+      { movement: "כפיפה (FLEXION)", main: "Hamstrings", assist: "Gastrocnemius" },
+      { movement: "פשיטה (EXTENSION)", main: "Quadriceps Femoris", assist: "אין" }
+    ]
+  },
   { name: "קרסול", muscles: "הרמת עקב (כיפוף כף הרגל כלפי מטה): שריר התאומים והסוליאוס.\nהרמת כף הרגל כלפי מעלה: השוק הקדמי (טיביאליס קדמי)." },
   { name: "עמוד שדרה", muscles: "יישור: שרירי הגב הארוכים (ארקטור ספיני).\nכיפוף: שרירי הבטן הישרים.\nסיבוב: שרירי הבטן האלכסוניים." },
   { name: "ישבן", muscles: "שרירי העכוז: הגדול, הבינוני והקטן. אחראים על הארכת הירך, הרחקתה וייצוב האגן." }

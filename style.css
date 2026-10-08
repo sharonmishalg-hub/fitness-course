@@ -192,6 +192,12 @@ main {
   border-radius: 8px;
 }
 
+/* תמונת הברך נמוכה יותר */
+.joint-images img[src$="Knee-flexion-extension.png"] {
+  width: auto;
+  max-height: 160px;
+}
+
 .muscle-legend {
   font-size: 0.95rem;
 }
