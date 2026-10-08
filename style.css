@@ -222,6 +222,22 @@ main {
   }
 }
 
+@media (max-width: 600px) {
+  .joint-dialog {
+    width: 92vw;
+    max-height: 80vh;
+    max-height: 80dvh;
+    padding: 14px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .joint-images img {
+    width: 100%;
+  }
+}
+
 mark {
   background: #ffe58a;
   padding: 0 2px;
