@@ -29,7 +29,7 @@
     const buttons = window.JOINTS
       .map(j => '<button type="button" class="joint-btn" data-name="' + escapeHtml(j.name) + '">' + escapeHtml(j.name) + "</button>")
       .join("");
-    return '<div class="joint-picker"><p>בחרו מפרק כדי לראות את השרירים העיקריים:</p>' + buttons + "</div>";
+    return '<div class="joint-picker"><p>בחרו מפרק כדי לראות את השרירים העיקריים והמסייעים:</p>' + buttons + "</div>";
   }
 
   function renderLesson(lesson, query) {
@@ -43,9 +43,13 @@
     const image = lesson.image
       ? '<img src="' + escapeHtml(lesson.image) + '" alt="' + escapeHtml(lesson.title) + '">'
       : "";
+    const videoLink = lesson.video
+      ? '<p class="lesson-video"><a href="' + escapeHtml(lesson.video.url) + '" target="_blank" rel="noopener">' + escapeHtml(lesson.video.title) + "</a></p>"
+      : "";
     return (
       '<article class="lesson">' +
       "<h2>" + highlight(lesson.title, query) + "</h2>" +
+      videoLink +
       image +
       paragraphs +
       jointPicker(lesson) +
@@ -142,7 +146,7 @@
     let content;
     if (joint.table) {
       const rows = joint.table
-        .map(r => "<tr><td>" + escapeHtml(r.movement) + "</td><td>" + muscleHtml(r.main) + "</td><td>" + muscleHtml(r.assist) + "</td></tr>")
+        .map(r => (r.shade ? '<tr class="row-shade">' : "<tr>") + "<td>" + escapeHtml(r.movement) + "</td><td>" + muscleHtml(r.main) + "</td><td>" + muscleHtml(r.assist) + "</td></tr>")
         .join("");
       content =
         '<table class="joint-table"><thead><tr><th>סוג תנועה</th><th>שריר ראשי</th><th>שריר מסייע</th></tr></thead>' +
@@ -155,10 +159,14 @@
         joint.images.map(img => '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '">').join("") +
         "</div>"
       : "";
+    const videoHtml = joint.video
+      ? '<p class="joint-video"><a href="' + escapeHtml(joint.video.url) + '" target="_blank" rel="noopener">' + escapeHtml(joint.video.title) + "</a></p>"
+      : "";
     dialog.innerHTML =
       '<div class="joint-top"><button type="button" class="joint-close" autofocus>סגירה</button></div>' +
       imagesHtml +
       "<h3>" + escapeHtml(joint.name) + "</h3>" +
+      videoHtml +
       content;
     dialog.showModal();
   }

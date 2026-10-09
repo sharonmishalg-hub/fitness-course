@@ -48,6 +48,13 @@ window.MUSCLE_HE = {
   "Gluteus Medius": "העכוז האמצעי. Medius: אמצעי.",
   "Gluteus Minimus": "העכוז הקטן. Minimus: הקטן ביותר.",
   "Gastrocnemius": "שריר התאומים. Gastro: בטן. Cnemis: שוק.",
+  "Soleus": "שריר הסוליאוס. מהמילה הלטינית solea, שפירושה סנדל.",
+  "Tibialis Anterior": "השוק הקדמי. Tibialis: שוק. Anterior: קדמי.",
+  "Rectus Abdominis": "שריר הבטן הישר. Rectus: ישר. Abdominis: של הבטן.",
+  "Internal Oblique": "השריר האלכסוני הפנימי. Internal: פנימי. Oblique: אלכסוני.",
+  "External Oblique": "השריר האלכסוני החיצוני. External: חיצוני. Oblique: אלכסוני.",
+  "Transverse Abdominis": "שריר הבטן הרוחבי. Transverse: רוחבי. Abdominis: של הבטן.",
+  "Erector Spinae": "שריר מזקף עמוד השדרה. Erector: מזקף. Spinae: של עמוד השדרה.",
   "Quadriceps Femoris": "ארבע-ראשי הירך. Quadriceps: ארבעה ראשים. Femoris: של הירך."
 };
 
@@ -89,7 +96,14 @@ window.MUSCLE_LOCATION = {
   "Gluteus Medius": "צד העכוז, החיצוני והעליון, על הכנף של עצם הכסל",
   "Gluteus Minimus": "עמוק מתחת לעכוז האמצעי, על הכנף של עצם הכסל, מחובר לחלק הצידי של עצם הירך",
   "Gastrocnemius": "גב השוק, שני ראשים שמתחברים מאחורי עצם הירך, ויורדים לעקב דרך גיד אכילס",
-  "Quadriceps Femoris": "חזית הירך, ארבעה ראשים שמתחברים לאגן ולעצם הירך, מתאחדים בגיד הפטלה מעל הברך ומחוברים לשוק"
+  "Quadriceps Femoris": "חזית הירך, ארבעה ראשים שמתחברים לאגן ולעצם הירך, מתאחדים בגיד הפטלה מעל הברך ומחוברים לשוק",
+  "Soleus": "גב השוק, מתחת לשריר התאומים, מחובר לשוק ולשוקה ויורד לעקב דרך גיד אכילס",
+  "Tibialis Anterior": "צד חזית השוק, מחובר לשוק ולכף הרגל, בצד הפנימי",
+  "Rectus Abdominis": "חזית הבטן, לאורך הבטן מהחזה עד עצם הערווה, בין שתי הרצועות האנכיות",
+  "Internal Oblique": "צדי הבטן, שכבה עמוקה מתחת לאלכסוני החיצוני, מחוברת לאגן ולצלעות התחתונות",
+  "External Oblique": "צדי הבטן, השכבה השטחית ביותר של הבטן הצדדית, מחוברת לצלעות התחתונות ולאגן",
+  "Transverse Abdominis": "השכבה העמוקה ביותר של הבטן, עוטפת את הבטן כמו חגורה, מחוברת לאגן ולצלעות התחתונות",
+  "Erector Spinae": "בגב, לאורך עמוד השדרה, בשני צדי החוליות"
 };
 
 // פירושים לתנועות שמופיעות בטבלה. מוצגים רק ברשימת "פירוש השמות" מתחת לטבלה.
@@ -103,6 +117,7 @@ window.JOINTS = [
   {
     name: "כתף",
     muscles: "",
+    video: { title: "סרטון: תנועות הכתף", url: "https://youtu.be/vtH_Ozi7scA" },
     images: [
       { src: "images/sholder-flexion-extension.png", alt: "כפיפה ופשיטה של הכתף" },
       { src: "images/sholder2-flexion-extension.png", alt: "כפיפה ופשיטה של הכתף, תמונה נוספת" }
@@ -125,7 +140,8 @@ window.JOINTS = [
       { src: "images/elbow-flexion-extension.png", alt: "כפיפה ופשיטה של המרפק" }
     ],
     table: [
-      { movement: "כפיפה (FLEXION)", main: "Biceps (בסופינציה), Brachialis (בפרונציה)", assist: "Brachioradialis, Biceps, Brachialis" },
+      { movement: "כפיפה (FLEXION) בסופינציה", main: "Biceps", assist: "Brachioradialis, Brachialis" },
+      { movement: "כפיפה (FLEXION) בפרונציה", main: "Brachialis", assist: "Brachioradialis, Biceps" },
       { movement: "פשיטה (EXTENSION)", main: "Triceps Brachii", assist: "אין" }
     ]
   },
@@ -168,15 +184,42 @@ window.JOINTS = [
       { movement: "פשיטה (EXTENSION)", main: "Quadriceps Femoris", assist: "אין" }
     ]
   },
-  { name: "קרסול", muscles: "הרמת עקב (כיפוף כף הרגל כלפי מטה): שריר התאומים והסוליאוס.\nהרמת כף הרגל כלפי מעלה: השוק הקדמי (טיביאליס קדמי)." },
-  { name: "עמוד שדרה", muscles: "יישור: שרירי הגב הארוכים (ארקטור ספיני).\nכיפוף: שרירי הבטן הישרים.\nסיבוב: שרירי הבטן האלכסוניים." },
-  { name: "ישבן", muscles: "שרירי העכוז: הגדול, הבינוני והקטן. אחראים על הארכת הירך, הרחקתה וייצוב האגן." }
+  {
+    name: "קרסול",
+    muscles: "",
+    images: [
+      { src: "images/Ankle-flexion-extension.png", alt: "כפיפה ופשיטה של הקרסול" }
+    ],
+    table: [
+      { movement: "כיפוף כף הרגל כלפי מטה (PLANTAR FLEXION), ברך כפופה", main: "Gastrocnemius", assist: "Soleus" },
+      { movement: "כיפוף כף הרגל כלפי מטה (PLANTAR FLEXION), ברך ישרה", main: "Soleus", assist: "Gastrocnemius" },
+      { movement: "כיפוף כף הרגל כלפי מעלה (DORSI FLEXION)", main: "Tibialis Anterior", assist: "פושטי האצבעות" }
+    ]
+  },
+  {
+    name: "עמוד שדרה",
+    muscles: "",
+    images: [
+      { src: "images/spine2-flexion-extension.png", alt: "כפיפה ופשיטה של עמוד השדרה" }
+    ],
+    table: [
+      { movement: "כפיפה (FLEXION)", main: "Rectus Abdominis", assist: "Internal Oblique, External Oblique, Transverse Abdominis" },
+      { movement: "פשיטה (EXTENSION)", main: "Erector Spinae", assist: "אין" },
+      { movement: "כפיפה לצד (SIDE FLEXION)", main: "Internal Oblique (לצד אליו מתבצעת התנועה), External Oblique (לצד אליו מתבצעת התנועה)", assist: "אין" },
+      { movement: "רוטציה שמאלה", main: "Internal Oblique (שמאל), External Oblique (ימין)", assist: "Rectus Abdominis, Transverse Abdominis" },
+      { movement: "רוטציה ימינה", main: "Internal Oblique (ימין), External Oblique (שמאל)", assist: "Rectus Abdominis, Transverse Abdominis" },
+      { movement: "סיבוב אגן לאחור וכפיפת גו", main: "Gluteus Maximus", assist: "Hamstrings, Rectus Abdominis", shade: true },
+      { movement: "פשיטת גו", main: "Erector Spinae", assist: "אין", shade: true },
+      { movement: "סיבוב אגן לפנים", main: "Iliopsoas", assist: "Erector Spinae", shade: true }
+    ]
+  },
 ];
 
 window.LESSONS = [
   {
     title: "שרירים מופעלים בתנועות המפרקים",
     tags: ["שרירים", "מפרקים", "אנטומיה", "תנועה"],
+    video: { title: "סרטון: תנועות המפרקים", url: "https://youtu.be/tAJjXvumL7E" },
     body: "כל תנועה בגוף מתבצעת בזכות מפרק אחד או יותר, ושרירים שמתכווצים ומושכים את העצמות סביבו.\n\nשריר מניע הוא השריר שמבצע את התנועה הראשית, למשל הזרוע הקדמית שמכופפת את המרפק. שריר נגדי הוא השריר שמבצע את התנועה ההפוכה, למשל השריר האחורי של הזרוע שמיישר את המרפק. שריר עוזר הוא שריר שתומך בתנועה ומסייע למניע.\n\nהבנת השרירים שמופעלים בכל תנועה עוזרת לבחור תרגילים מתאימים, לתקן טכניקה ולהימנע מעומס על מפרקים.",
     joints: true,
     image: ""

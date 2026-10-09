@@ -146,6 +146,11 @@ main {
   color: #1f6f5c;
 }
 
+/* שורות מופרדות בצבע עדין */
+.joint-table tr.row-shade td {
+  background: #f4f8f6;
+}
+
 .muscle {
   position: relative;
   display: inline-block;
@@ -190,6 +195,12 @@ main {
   max-width: 100%;
   border: 1px solid #ddd;
   border-radius: 8px;
+}
+
+/* תמונה שנייה של הכתף תהיה באותו גובה כמו הראשונה */
+.joint-images img[src$="sholder2-flexion-extension.png"] {
+  width: auto;
+  height: 134px;
 }
 
 /* תמונת הברך נמוכה יותר */
