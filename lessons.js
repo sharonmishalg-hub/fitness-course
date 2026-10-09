@@ -118,6 +118,7 @@ window.JOINTS = [
     name: "כתף",
     muscles: "",
     video: { title: "סרטון: תנועות הכתף", url: "https://youtu.be/vtH_Ozi7scA" },
+    printable: true,
     images: [
       { src: "images/sholder-flexion-extension.png", alt: "כפיפה ופשיטה של הכתף" },
       { src: "images/sholder2-flexion-extension.png", alt: "כפיפה ופשיטה של הכתף, תמונה נוספת" }
@@ -135,6 +136,7 @@ window.JOINTS = [
   },
   {
     name: "מרפק",
+    printable: true,
     muscles: "",
     images: [
       { src: "images/elbow-flexion-extension.png", alt: "כפיפה ופשיטה של המרפק" }
@@ -147,6 +149,7 @@ window.JOINTS = [
   },
   {
     name: "שכמות",
+    printable: true,
     muscles: "",
     images: [
       { src: "images/scapular-flextion-extensions.png", alt: "תנועות השכמה" }
@@ -162,6 +165,7 @@ window.JOINTS = [
   },
   {
     name: "ירך",
+    printable: true,
     muscles: "",
     images: [
       { src: "images/hip-flexion-extension.png", alt: "כפיפה ופשיטה של הירך" }
@@ -175,6 +179,7 @@ window.JOINTS = [
   },
   {
     name: "ברך",
+    printable: true,
     muscles: "",
     images: [
       { src: "images/Knee-flexion-extension.png", alt: "כפיפה ופשיטה של הברך" }
@@ -186,6 +191,7 @@ window.JOINTS = [
   },
   {
     name: "קרסול",
+    printable: true,
     muscles: "",
     images: [
       { src: "images/Ankle-flexion-extension.png", alt: "כפיפה ופשיטה של הקרסול" }
@@ -198,6 +204,7 @@ window.JOINTS = [
   },
   {
     name: "עמוד שדרה",
+    printable: true,
     muscles: "",
     images: [
       { src: "images/spine2-flexion-extension.png", alt: "כפיפה ופשיטה של עמוד השדרה" }

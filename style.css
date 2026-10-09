@@ -146,6 +146,45 @@ main {
   color: #1f6f5c;
 }
 
+/* כפתור הדפסה בפופאפ */
+.print-btn {
+  display: inline-block;
+  margin: 4px 4px 4px 0;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: 1px solid #1f6f5c;
+  border-radius: 8px;
+  background: #fff;
+  color: #1f6f5c;
+  cursor: pointer;
+}
+
+/* הדפסה: רק תוכן הפופאפ, בלי כפתורים ובלי הדף מסביב */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #joint-dialog,
+  #joint-dialog * {
+    visibility: visible;
+  }
+  #joint-dialog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    box-shadow: none;
+    padding: 0;
+  }
+  .joint-top,
+  .print-btn {
+    display: none !important;
+  }
+}
+
 /* שורות מופרדות בצבע עדין */
 .joint-table tr.row-shade td {
   background: #f4f8f6;

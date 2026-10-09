@@ -162,8 +162,9 @@
     const videoHtml = joint.video
       ? '<p class="joint-video"><a href="' + escapeHtml(joint.video.url) + '" target="_blank" rel="noopener">' + escapeHtml(joint.video.title) + "</a></p>"
       : "";
+    const printBtn = joint.printable ? '<button type="button" class="print-btn">הדפסה</button>' : "";
     dialog.innerHTML =
-      '<div class="joint-top"><button type="button" class="joint-close" autofocus>סגירה</button></div>' +
+      '<div class="joint-top"><button type="button" class="joint-close" autofocus>סגירה</button>' + printBtn + "</div>" +
       imagesHtml +
       "<h3>" + escapeHtml(joint.name) + "</h3>" +
       videoHtml +
@@ -175,6 +176,7 @@
     const btn = e.target.closest(".joint-btn");
     if (btn) showJoint(btn.dataset.name);
     if (e.target.classList.contains("joint-close")) dialog.close();
+    if (e.target.classList.contains("print-btn")) window.print();
   });
 
   searchEl.addEventListener("input", render);
