@@ -180,6 +180,7 @@ window.JOINTS = [
   {
     name: "ברך",
     printable: true,
+    speak: true,
     muscles: "",
     images: [
       { src: "images/Knee-flexion-extension.png", alt: "כפיפה ופשיטה של הברך" }

@@ -146,6 +146,16 @@ main {
   color: #1f6f5c;
 }
 
+/* כפתור רמקול ליד שם שריר */
+.speak-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0 2px;
+  vertical-align: middle;
+}
+
 /* כפתור הדפסה בפופאפ */
 .print-btn {
   display: inline-block;

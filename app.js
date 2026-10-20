@@ -99,7 +99,7 @@
   const dialog = document.getElementById("joint-dialog");
 
   // שם שריר באנגלית/לטינית, עם פירוש בעברית שמופיע בהעברת עכבר או בנגיעה
-  function muscleHtml(list) {
+  function muscleHtml(list, speak) {
     return list
       .split(",")
       .map(s => s.trim())
@@ -109,8 +109,12 @@
         const name = m ? m[1].trim() : item;
         const note = m ? " (" + escapeHtml(m[2]) + ")" : "";
         const he = (window.MUSCLE_HE || {})[name] || "";
-        if (!he) return escapeHtml(name) + note;
-        return '<span class="muscle" tabindex="0" data-he="' + escapeHtml(he) + '">' + escapeHtml(name) + "</span>" + note;
+        // כפתור רמקול להקראת השם הלטיני, רק כשהכרטיסייה מסומנת לכך ורק לשמות באנגלית
+        const sayBtn = speak && /^[A-Za-z]/.test(name)
+          ? ' <button type="button" class="speak-btn" data-say="' + escapeHtml(name) + '" aria-label="הקראת השם ' + escapeHtml(name) + '">🔊</button>'
+          : "";
+        if (!he) return escapeHtml(name) + sayBtn + note;
+        return '<span class="muscle" tabindex="0" data-he="' + escapeHtml(he) + '">' + escapeHtml(name) + "</span>" + sayBtn + note;
       })
       .join("<br>");
   }
@@ -146,7 +150,7 @@
     let content;
     if (joint.table) {
       const rows = joint.table
-        .map(r => (r.shade ? '<tr class="row-shade">' : "<tr>") + "<td>" + escapeHtml(r.movement) + "</td><td>" + muscleHtml(r.main) + "</td><td>" + muscleHtml(r.assist) + "</td></tr>")
+        .map(r => (r.shade ? '<tr class="row-shade">' : "<tr>") + "<td>" + escapeHtml(r.movement) + "</td><td>" + muscleHtml(r.main, joint.speak) + "</td><td>" + muscleHtml(r.assist, joint.speak) + "</td></tr>")
         .join("");
       content =
         '<table class="joint-table"><thead><tr><th>סוג תנועה</th><th>שריר ראשי</th><th>שריר מסייע</th></tr></thead>' +
@@ -177,6 +181,17 @@
     if (btn) showJoint(btn.dataset.name);
     if (e.target.classList.contains("joint-close")) dialog.close();
     if (e.target.classList.contains("print-btn")) window.print();
+    const speakBtn = e.target.closest(".speak-btn");
+    if (speakBtn && "speechSynthesis" in window) {
+      try {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(speakBtn.dataset.say);
+        u.lang = "en-US";
+        window.speechSynthesis.speak(u);
+      } catch (err) {
+        // אם הדפדפן לא תומך בהקראה, פשוט לא קורה כלום
+      }
+    }
   });
 
   searchEl.addEventListener("input", render);
