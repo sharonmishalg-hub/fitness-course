@@ -532,8 +532,14 @@
         const bmp = await createImageBitmap(blob);
         const w = 150;
         const h = Math.round(w * bmp.height / bmp.width);
-        const buf = await blob.arrayBuffer();
-        return new d.ImageRun({ data: buf, transformation: { width: w, height: h } });
+        // ממירים ל-PNG, כי Word לא מציג תמונות WEBP או פורמטים אחרים
+        const canvas = document.createElement("canvas");
+        canvas.width = bmp.width;
+        canvas.height = bmp.height;
+        canvas.getContext("2d").drawImage(bmp, 0, 0);
+        const pngBlob = await new Promise(function (resolve) { canvas.toBlob(resolve, "image/png"); });
+        const buf = await pngBlob.arrayBuffer();
+        return new d.ImageRun({ type: "png", data: buf, transformation: { width: w, height: h } });
       } catch (err) {
         return null;
       }
