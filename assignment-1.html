@@ -461,8 +461,23 @@
     </section>
   </main>
   <script>
-    document.getElementById("download-csv").addEventListener("click", function () {
+    // ממירה תמונה לכתובת data (מוטמעת בקובץ), כדי שתופיע גם בלי חיבור לאינטרנט
+    function toDataUrl(src) {
+      return fetch(src).then(function (res) { return res.blob(); }).then(function (blob) {
+        return new Promise(function (resolve, reject) {
+          const reader = new FileReader();
+          reader.onload = function () { resolve(reader.result); };
+          reader.onerror = reject;
+          reader.readAsDataURL(blob);
+        });
+      }).catch(function () { return src; });
+    }
+
+    document.getElementById("download-csv").addEventListener("click", async function () {
       const rows = document.querySelectorAll(".joint-table tr");
+      const dataUrls = {};
+      const srcs = Array.from(new Set(Array.from(document.querySelectorAll(".joint-table img")).map(function (i) { return i.src; })));
+      await Promise.all(srcs.map(function (src) { return toDataUrl(src).then(function (u) { dataUrls[src] = u; }); }));
       const body = [];
       rows.forEach(function (tr) {
         const cells = Array.from(tr.querySelectorAll("th, td"));
@@ -470,7 +485,7 @@
         body.push("<tr>" + cells.map(function (c) {
           const img = c.querySelector("img");
           // התמונה נטענת מכתובת האתר המלאה, כדי שתופיע גם בקובץ שהורד
-          const inner = img ? '<img src="' + img.src + '" style="width:120px">' : c.innerHTML;
+          const inner = img ? '<img src="' + (dataUrls[img.src] || img.src) + '" style="width:120px">' : c.innerHTML;
           const span = c.getAttribute("rowspan") ? ' rowspan="' + c.getAttribute("rowspan") + '"' : "";
           return "<" + tag + span + ">" + inner + "</" + tag + ">";
         }).join("") + "</tr>");
